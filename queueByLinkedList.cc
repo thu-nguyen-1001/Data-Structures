@@ -24,7 +24,8 @@ public:
 	}
 	// destructor
 	~Queue() {
-
+		while(!isEmpty())
+			dequeue();
 	}
 	// display
 	void display() {
@@ -44,6 +45,12 @@ public:
 			temp = temp->next;
 		}
 		return count;
+	}
+	// check if queue is empty
+	bool isEmpty() {
+		if (rear)
+			return false;
+		return true;
 	}
 	// add a new node at rear
 	void enqueue(int val) {
@@ -83,5 +90,6 @@ int main() {
 	q.enqueue(3);
 	q.dequeue();
 	q.display();
+	cout << "Queue size: " << q.size() << endl;
 	return 0;
 }
