@@ -61,7 +61,18 @@ public:
 	}
 	// remove a node at front
 	void dequeue() {
-
+		Node* temp = front;
+		if (rear == front) {
+			if (temp) { 
+				delete temp;
+				rear = nullptr;
+				rear = nullptr;
+			}
+			return;
+		}
+		front = front->prev;
+		delete temp;
+		front->next = nullptr;
 	}
 };
 
@@ -70,6 +81,7 @@ int main() {
 	q.enqueue(1);
 	q.enqueue(2);
 	q.enqueue(3);
+	q.dequeue();
 	q.display();
 	return 0;
 }
