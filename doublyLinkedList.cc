@@ -62,6 +62,16 @@ public:
 		return count;
 	}
 
+	// determine if the list contains a value
+	bool contains(int val) {
+		Node* temp = head;
+		while(temp) {
+			if (temp->value == val)
+				return true;
+			temp = temp->next;
+		} 
+		return false;
+	}
 	// add new node
 	void add(int val) {
 		Node* newNode = new Node;
@@ -122,5 +132,7 @@ int main() {
 	cout << "Size of list: " << list.size() << endl;
 	cout << "Display: ";
 	list.display();
+	cout << "Does the list contain 5? " << list.contains(5) << endl;
+	cout << "Does the list contain 6? " << list.contains(6) << endl;
 	return 0;
 }
