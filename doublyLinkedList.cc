@@ -118,6 +118,26 @@ public:
 			temp = temp->next;
 		}
 	}
+	// reverse the list
+	void reverse() {
+		Node* cur = head;
+		Node* pre;
+		Node* nex;
+		while (cur != tail) {
+			pre = cur->prev;
+			nex = cur->next;
+			cur->prev = nex;
+			cur->next = pre;
+			cur = nex;
+		}
+		if (tail) {
+			tail->next = pre;
+			tail->prev = nullptr;
+		}
+		tail = head;
+		head = cur;
+	}
+
 };
 
 int main() {
@@ -128,11 +148,15 @@ int main() {
 	list.add(3);
 	list.add(4);
 	list.add(5);
+	list.add(7);
 	list.remove(0);
 	cout << "Size of list: " << list.size() << endl;
 	cout << "Display: ";
 	list.display();
 	cout << "Does the list contain 5? " << list.contains(5) << endl;
 	cout << "Does the list contain 6? " << list.contains(6) << endl;
+	cout << "Reverse list: " <<endl;
+	list.reverse();
+	list.display();
 	return 0;
 }
