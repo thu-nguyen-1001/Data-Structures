@@ -131,7 +131,7 @@ public:
 			cur = nex;
 		}
 		if (tail) {
-			tail->next = pre;
+			tail->next = tail->prev;
 			tail->prev = nullptr;
 		}
 		tail = head;
