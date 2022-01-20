@@ -73,10 +73,11 @@ public:
 		Node* nex;
 		while (cur) {
 			nex = cur->next;
-			cur->next = prev;
-			prev = cur;
+			cur->next = pre;
+			pre = cur;
 			cur = nex;
 		}
+		head = pre;
 	}
 };
 
@@ -88,6 +89,8 @@ int main() {
 	sllist.add(4);
 	sllist.print();
 	sllist.reverse();
+	cout << endl;
 	sllist.print();
+	cout << endl;
 	return 0;
 }
