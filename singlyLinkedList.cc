@@ -65,6 +65,19 @@ public:
 	void remove(int val) {
 
 	}
+
+	// reverse the list
+	void reverse() {
+		Node* cur = head;
+		Node* pre = nullptr;
+		Node* nex;
+		while (cur) {
+			nex = cur->next;
+			cur->next = prev;
+			prev = cur;
+			cur = nex;
+		}
+	}
 };
 
 int main() {
@@ -73,6 +86,8 @@ int main() {
 	sllist.add(2);
 	sllist.add(3);
 	sllist.add(4);
+	sllist.print();
+	sllist.reverse();
 	sllist.print();
 	return 0;
 }
